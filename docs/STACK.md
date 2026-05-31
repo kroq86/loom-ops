@@ -66,6 +66,17 @@ pip install -e ".[dev,api]"
 
 Same runtime (`loom-runner`), different tools and CLIs.
 
+## Optional MCP: ops-runtime-mcp
+
+[ops-runtime-mcp](https://pypi.org/project/ops-runtime-mcp/) ([data-engineering-runtime-lab](https://github.com/kroq86/data-engineering-runtime-lab)) exposes ops/runtime tools over MCP. Example preset: [`mcp.servers.example.json`](../mcp.servers.example.json).
+
+```bash
+pip install ops-runtime-mcp
+# stdio: ops-runtime-mcp
+```
+
+See [ECOSYSTEM.md](https://github.com/kroq86/loom-stack/blob/main/docs/ECOSYSTEM.md) for `docs-memory-mcp` and `rule-based-verifier` (loom-run siblings).
+
 ## Trace workflow (loom-ops + flow-xray)
 
 ```bash
