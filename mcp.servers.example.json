@@ -1,7 +1,7 @@
 {
   "data-engineering-runtime-lab": {
-    "command": "/absolute/path/to/data-engineering-runtime-lab/.venv/bin/python",
-    "args": ["-m", "ops_runtime_mcp"],
+    "command": "/absolute/path/to/.venv/bin/ops-runtime-mcp",
+    "args": [],
     "env": {
       "OPS_WORKSPACE": "/absolute/path/to/runbooks"
     },

@@ -1,5 +1,7 @@
 # loom-ops
 
+[![PyPI](https://img.shields.io/pypi/v/loom-ops)](https://pypi.org/project/loom-ops/)
+
 **Durable runbook ops agent** on the [Loom stack](https://kroq86.github.io/loom-stack/) — ops sibling of [loom-run](https://github.com/kroq86/loom-run), built on [loom-runner](https://github.com/kroq86/loom-runner) with [flow-xray](https://github.com/kroq86/flow-xray) traces.
 
 > Run нельзя потерять: упал на шаге 12/40 → `resume`, каждый tool call в SQLite, postmortem через `explain` + flow-xray.
