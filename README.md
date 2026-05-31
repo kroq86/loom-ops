@@ -18,12 +18,14 @@ Full map: [docs/STACK.md](docs/STACK.md). Dev assistant → use **loom-run**; op
 
 ## Install
 
-**From PyPI** (runtime + CLI):
+**From PyPI** (after publish — see [releases](https://github.com/kroq86/loom-ops/releases)):
 
 ```bash
 pip install "loom-ops[api,telegram]"
 loom-ops supervise "incident: API latency spike" --run-id inc-001 --db ops.sqlite --mock-llm --workspace .
 ```
+
+> PyPI workflow: `.github/workflows/publish.yml` on GitHub Release. Requires `PYPI_API_TOKEN` with upload scope for project `loom-ops`.
 
 **From source** (development):
 
