@@ -1,0 +1,31 @@
+name: security
+
+on:
+  push:
+    paths:
+      - "src/**"
+      - "docs/**"
+      - ".github/workflows/security.yml"
+  pull_request:
+    paths:
+      - "src/**"
+      - "docs/**"
+
+permissions:
+  contents: read
+
+jobs:
+  secret-pattern-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ripgrep
+        run: sudo apt-get update && sudo apt-get install -y ripgrep
+      - name: Scan tracked source for secret patterns
+        run: |
+          set -euo pipefail
+          if rg -n --glob '!.git' 'sk-[a-zA-Z0-9]{20,}|ghp_[a-zA-Z0-9]{20,}|AKIA[0-9A-Z]{16}|BEGIN (RSA |OPENSSH )?PRIVATE KEY' src/; then
+            echo "::error::Possible secret in src/ — redact or move to env"
+            exit 1
+          fi
+          echo "No secret patterns in src/"

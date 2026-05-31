@@ -8,13 +8,21 @@
 
 ## Loom stack (this repo’s place)
 
-| Package | Role |
-|---------|------|
-| [loom-stack hub](https://kroq86.github.io/loom-stack/) | Start here — docs and comparisons |
-| [loom-runner](https://github.com/kroq86/loom-runner) | **Runtime** — checkpoint/resume (dependency) |
-| [loom-run](https://github.com/kroq86/loom-run) | **Showcase** — dev chat on a repo |
-| **loom-ops** | **Product** — incident/deploy runbooks (this repo) |
-| [flow-xray](https://github.com/kroq86/flow-xray) | **Traces** — `--trace` HTML graphs |
+The stack is a pyramid, not five equal frameworks. Tail-call optimization is
+the primitive, runner is the durable runtime, xray is the microscope, and the
+apps prove the stack in real workflows.
+
+| Layer | Project | Job |
+| --- | --- | --- |
+| Primitive | [loom-tailcalls](https://github.com/kroq86/loom-tailcalls) | Make async recursive/state-machine loops stack-safe |
+| Runtime kernel | [loom-runner](https://github.com/kroq86/loom-runner) | Make those loops durable, resumable, idempotent |
+| Microscope | [flow-xray](https://github.com/kroq86/flow-xray) | Show what actually happened in one offline HTML trace |
+| Proof app | [loom-run](https://github.com/kroq86/loom-run) | Chat agent reference implementation |
+| Proof app | **loom-ops** ← **this repo** | Ops/runbook agent reference implementation |
+
+`loom-ops` is the ops/runbook proof app. It depends on `loom-runner`,
+`loom-tailcalls`, and `flow-xray`; none of those lower layers depend on this
+repo.
 
 Full map: [docs/STACK.md](docs/STACK.md). Dev assistant → use **loom-run**; ops runbooks → **loom-ops**.
 

@@ -5,6 +5,26 @@ import os
 from dataclasses import dataclass
 from typing import Any
 
+_SENSITIVE_ENV_PREFIXES = (
+    "OPENAI_",
+    "TELEGRAM_",
+    "AWS_",
+    "PYPI_",
+    "GITHUB_",
+    "GH_",
+    "TWINE_",
+)
+
+
+def _child_process_env(config_env: dict[str, str]) -> dict[str, str]:
+    env = {
+        key: value
+        for key, value in os.environ.items()
+        if not key.startswith(_SENSITIVE_ENV_PREFIXES)
+    }
+    env.update(config_env)
+    return env
+
 
 @dataclass
 class McpServerConfig:
@@ -31,8 +51,7 @@ class McpStdioClient:
             return
         if self._lock is None:
             self._lock = asyncio.Lock()
-        env = os.environ.copy()
-        env.update(self._config.env)
+        env = _child_process_env(self._config.env)
         self._proc = await asyncio.create_subprocess_exec(
             self._config.command,
             *self._config.args,
@@ -50,7 +69,7 @@ class McpStdioClient:
             {
                 "protocolVersion": "2024-11-05",
                 "capabilities": {},
-                "clientInfo": {"name": "loom-ops", "version": "0.1.0"},
+                "clientInfo": {"name": "loom-ops", "version": "0.2.1"},
             },
         )
         await self._notify("notifications/initialized", {})

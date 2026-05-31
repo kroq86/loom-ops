@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "loom-ops"
-version = "0.2.0"
+version = "0.2.1"
 description = "Durable runbook ops agent on the Loom stack: checkpoint/resume, supervisor planner/executor/verifier, audit trail."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -41,7 +41,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "loom-runner>=0.1.1",
+    "loom-runner>=0.1.2",
     "loom-tailcalls>=0.2.1",
     "flow-xray>=0.3.4",
 ]

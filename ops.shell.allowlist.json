@@ -1,6 +1,6 @@
 {
   "commands": [
-    ["echo"],
-    ["python", "-c"]
-  ]
+    ["echo"]
+  ],
+  "_comment": "Add explicit ops prefixes only (e.g. kubectl, systemctl). Do not use python -c — arbitrary code execution."
 }

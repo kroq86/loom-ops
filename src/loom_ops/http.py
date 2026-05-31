@@ -36,7 +36,7 @@ def create_app(db_path: str, settings: Settings) -> Any:
     except ImportError as exc:
         raise RuntimeError("install loom-ops with api extra: pip install 'loom-ops[api]'") from exc
 
-    app = FastAPI(title="loom-ops", version="0.2.0")
+    app = FastAPI(title="loom-ops", version="0.2.1")
     runner = build_runner_with_settings(db_path, settings)
     supervisor = build_supervisor_runner(db_path, settings)
 
