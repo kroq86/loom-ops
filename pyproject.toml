@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loom-ops"
+version = "0.2.0"
+description = "Durable runbook ops agent on the Loom stack: checkpoint/resume, supervisor planner/executor/verifier, audit trail."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "kroq86" }]
+keywords = [
+    "agents",
+    "ai-agents",
+    "checkpoint",
+    "durable-execution",
+    "flow-xray",
+    "incident-response",
+    "local-first",
+    "loom",
+    "loom-runner",
+    "loom-stack",
+    "mcp",
+    "ops",
+    "runbook",
+    "sqlite",
+    "supervisor",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: System :: Systems Administration",
+    "Typing :: Typed",
+]
+dependencies = [
+    "loom-runner>=0.1.1",
+    "loom-tailcalls>=0.2.1",
+    "flow-xray>=0.3.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-asyncio>=0.23", "httpx>=0.27"]
+openai = ["openai>=1.0"]
+api = ["fastapi>=0.100", "uvicorn[standard]>=0.23"]
+telegram = ["httpx>=0.27"]
+
+[project.scripts]
+loom-ops = "loom_ops.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/kroq86/loom-ops"
+Repository = "https://github.com/kroq86/loom-ops"
+Documentation = "https://kroq86.github.io/loom-stack/"
+Issues = "https://github.com/kroq86/loom-ops/issues"
+"Loom stack (hub)" = "https://kroq86.github.io/loom-stack/"
+"loom-run (showcase)" = "https://github.com/kroq86/loom-run"
+"loom-runner (runtime)" = "https://github.com/kroq86/loom-runner"
+"flow-xray (traces)" = "https://github.com/kroq86/flow-xray"
+"loom-tailcalls (scheduling)" = "https://github.com/kroq86/loom-tailcalls"
+"loom-ops (ops product)" = "https://github.com/kroq86/loom-ops"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

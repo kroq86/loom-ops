@@ -1,0 +1,13 @@
+{
+  "data-engineering-runtime-lab": {
+    "command": "/absolute/path/to/data-engineering-runtime-lab/.venv/bin/python",
+    "args": ["-m", "ops_runtime_mcp"],
+    "env": {
+      "OPS_WORKSPACE": "/absolute/path/to/runbooks"
+    },
+    "tools": {
+      "execute_step": "execute_runbook_step",
+      "check_health": "check_service_health"
+    }
+  }
+}
