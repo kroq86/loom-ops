@@ -54,6 +54,8 @@ CLI entrypoint: **`loom-ops`** (not `loom-runner`). Low-level runner CLI remains
 # Hub docs: https://kroq86.github.io/loom-stack/
 
 # Ops product (this repo)
+pip install "loom-ops[api]"
+# or from source:
 git clone https://github.com/kroq86/loom-ops.git && cd loom-ops
 pip install -e ".[dev,api]"
 

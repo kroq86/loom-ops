@@ -18,6 +18,15 @@ Full map: [docs/STACK.md](docs/STACK.md). Dev assistant → use **loom-run**; op
 
 ## Install
 
+**From PyPI** (runtime + CLI):
+
+```bash
+pip install "loom-ops[api,telegram]"
+loom-ops supervise "incident: API latency spike" --run-id inc-001 --db ops.sqlite --mock-llm --workspace .
+```
+
+**From source** (development):
+
 ```bash
 git clone https://github.com/kroq86/loom-ops.git
 cd loom-ops
